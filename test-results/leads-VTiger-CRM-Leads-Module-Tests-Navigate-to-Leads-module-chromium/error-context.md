@@ -1,0 +1,1038 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: leads.spec.js >> VTiger CRM Leads Module Tests >> Navigate to Leads module
+- Location: tests\leads.spec.js:18:3
+
+# Error details
+
+```
+Error: locator.isVisible: Error: strict mode violation: getByRole('link', { name: 'Leads' }) resolved to 6 elements:
+    1) <a href="index.php?module=Leads&action=index">Leads</a> aka getByRole('link', { name: 'Leads' }).first()
+    2) <a class="hdrLink" href="index.php?action=ListView&module=Leads&parenttab=Marketing">Leads</a> aka getByRole('link', { name: 'Leads' }).nth(1)
+    3) <a href="javascript:;" onclick="moveMe('searchAcc');searchshowhide('searchAcc','advSearch');mergehide('mergeDup')">…</a> aka getByRole('link', { name: 'Search in Leads...' })
+    4) <a href="index.php?module=Leads&action=Import&step=1&return_module=Leads&return_action=index&parenttab=Marketing">…</a> aka getByRole('link', { name: 'Import Leads' })
+    5) <a name="export_link" href="javascript:void(0)" onclick="return selectedRecords('Leads','Marketing')">…</a> aka getByRole('link', { name: 'Export Leads' })
+    6) <a href="index.php?module=Settings&action=ModuleManager&module_settings=true&formodule=Leads&parenttab=Settings">…</a> aka getByRole('link', { name: 'Leads Settings' })
+
+Call log:
+    - checking visibility of getByRole('link', { name: 'Leads' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - table [ref=e2]:
+    - rowgroup [ref=e3]:
+      - row "vtiger-crm-logo.gif Search... Find Administrator" [ref=e4]:
+        - cell "vtiger-crm-logo.gif" [ref=e5]:
+          - img "vtiger-crm-logo.gif" [ref=e6]
+        - cell "Search... Find" [ref=e7]:
+          - table [ref=e9]:
+            - rowgroup [ref=e10]:
+              - row "Search... Find" [ref=e11]:
+                - cell "Search..." [ref=e12]:
+                  - textbox [ref=e13]: Search...
+                - cell [ref=e14]:
+                  - link:
+                    - /url: javascript:void(0);
+                    - img [ref=e15] [cursor=pointer]
+                - cell "Find" [ref=e16]:
+                  - button "Find" [ref=e17] [cursor=pointer]
+        - cell "Administrator" [ref=e18]:
+          - table [ref=e19]:
+            - rowgroup [ref=e20]:
+              - row "Administrator" [ref=e21]:
+                - cell "Administrator" [ref=e22]
+                - cell [ref=e23]:
+                  - img [ref=e24]
+                - cell [ref=e25]:
+                  - img [ref=e27]
+                - cell [ref=e28]:
+                  - img [ref=e29]
+  - table [ref=e30]:
+    - rowgroup [ref=e31]:
+      - row "Calendar Leads Organizations Contacts Opportunities Products Documents Email Trouble Tickets Dashboard More Quick Create..." [ref=e32]:
+        - cell [ref=e33]:
+          - link [ref=e34] [cursor=pointer]:
+            - /url: index.php?module=Home&action=index&parenttab=My Home Page
+            - img [ref=e35]
+        - cell "Calendar Leads Organizations Contacts Opportunities Products Documents Email Trouble Tickets Dashboard More Quick Create..." [ref=e36]:
+          - table [ref=e37]:
+            - rowgroup [ref=e38]:
+              - row "Calendar Leads Organizations Contacts Opportunities Products Documents Email Trouble Tickets Dashboard More Quick Create..." [ref=e39]:
+                - cell [ref=e40]:
+                  - img [ref=e41]
+                - cell "Calendar" [ref=e42]:
+                  - link "Calendar" [ref=e43] [cursor=pointer]:
+                    - /url: index.php?module=Calendar&action=index
+                - cell [ref=e44]:
+                  - img [ref=e45]
+                - cell "Leads" [ref=e46]:
+                  - link "Leads" [ref=e47] [cursor=pointer]:
+                    - /url: index.php?module=Leads&action=index
+                - cell [ref=e48]:
+                  - img [ref=e49]
+                - cell "Organizations" [ref=e50]:
+                  - link "Organizations" [ref=e51] [cursor=pointer]:
+                    - /url: index.php?module=Accounts&action=index
+                - cell [ref=e52]:
+                  - img [ref=e53]
+                - cell "Contacts" [ref=e54]:
+                  - link "Contacts" [ref=e55] [cursor=pointer]:
+                    - /url: index.php?module=Contacts&action=index
+                - cell [ref=e56]:
+                  - img [ref=e57]
+                - cell "Opportunities" [ref=e58]:
+                  - link "Opportunities" [ref=e59] [cursor=pointer]:
+                    - /url: index.php?module=Potentials&action=index
+                - cell [ref=e60]:
+                  - img [ref=e61]
+                - cell "Products" [ref=e62]:
+                  - link "Products" [ref=e63] [cursor=pointer]:
+                    - /url: index.php?module=Products&action=index
+                - cell [ref=e64]:
+                  - img [ref=e65]
+                - cell "Documents" [ref=e66]:
+                  - link "Documents" [ref=e67] [cursor=pointer]:
+                    - /url: index.php?module=Documents&action=index
+                - cell [ref=e68]:
+                  - img [ref=e69]
+                - cell "Email" [ref=e70]:
+                  - link "Email" [ref=e71] [cursor=pointer]:
+                    - /url: index.php?module=Emails&action=index
+                - cell [ref=e72]:
+                  - img [ref=e73]
+                - cell "Trouble Tickets" [ref=e74]:
+                  - link "Trouble Tickets" [ref=e75] [cursor=pointer]:
+                    - /url: index.php?module=HelpDesk&action=index
+                - cell [ref=e76]:
+                  - img [ref=e77]
+                - cell "Dashboard" [ref=e78]:
+                  - link "Dashboard" [ref=e79] [cursor=pointer]:
+                    - /url: index.php?module=Dashboard&action=index
+                - cell [ref=e80]:
+                  - img [ref=e81]
+                - cell "More" [ref=e82]:
+                  - link "More" [ref=e83] [cursor=pointer]:
+                    - /url: javascript:;
+                    - text: More
+                    - img [ref=e84]
+                - cell [ref=e85]:
+                  - img [ref=e86]
+                - cell "Quick Create..." [ref=e87]:
+                  - combobox [ref=e88]:
+                    - option "Quick Create..." [selected]
+                    - option "New Organization"
+                    - option "New Asset"
+                    - option "New To Do"
+                    - option "New Campaign"
+                    - option "New Comment"
+                    - option "New Contact"
+                    - option "New Document"
+                    - option "New Event"
+                    - option "New Ticket"
+                    - option "New Lead"
+                    - option "New Opportunity"
+                    - option "New PriceBook"
+                    - option "New Product"
+                    - option "New Project"
+                    - option "New Project Milestone"
+                    - option "New Project Task"
+                    - option "New Service Contract"
+                    - option "New Service"
+                    - option "New Vendor"
+        - cell [ref=e89]
+  - img [ref=e91]
+  - table [ref=e92]:
+    - rowgroup [ref=e93]:
+      - row [ref=e94]:
+        - cell [ref=e95]
+      - row "Leads Create Lead... Search in Leads... Open Calendar... Show World Clock... Open Calculator... Chat... Last Viewed Import Leads Export Leads Find Duplicates Leads Settings" [ref=e96]:
+        - cell "Leads" [ref=e97]:
+          - link "Leads" [ref=e98] [cursor=pointer]:
+            - /url: index.php?action=ListView&module=Leads&parenttab=Marketing
+        - cell "Create Lead... Search in Leads... Open Calendar... Show World Clock... Open Calculator... Chat... Last Viewed Import Leads Export Leads Find Duplicates Leads Settings" [ref=e99]:
+          - table [ref=e100]:
+            - rowgroup [ref=e101]:
+              - row "Create Lead... Search in Leads... Open Calendar... Show World Clock... Open Calculator... Chat... Last Viewed Import Leads Export Leads Find Duplicates Leads Settings" [ref=e102]:
+                - cell [ref=e103]
+                - cell "Create Lead... Search in Leads..." [ref=e104]:
+                  - table [ref=e105]:
+                    - rowgroup [ref=e106]:
+                      - row "Create Lead... Search in Leads..." [ref=e107]:
+                        - cell "Create Lead... Search in Leads..." [ref=e108]:
+                          - table [ref=e109]:
+                            - rowgroup [ref=e110]:
+                              - row "Create Lead... Search in Leads..." [ref=e111]:
+                                - cell "Create Lead..." [ref=e112]:
+                                  - link "Create Lead..." [ref=e113] [cursor=pointer]:
+                                    - /url: index.php?module=Leads&action=EditView&return_action=DetailView&parenttab=Marketing
+                                    - img "Create Lead..." [ref=e114]
+                                - cell "Search in Leads..." [ref=e115]:
+                                  - link "Search in Leads..." [ref=e116] [cursor=pointer]:
+                                    - /url: javascript:;
+                                    - img "Search in Leads..." [ref=e117]
+                - cell [ref=e118]
+                - cell "Open Calendar... Show World Clock... Open Calculator... Chat... Last Viewed" [ref=e119]:
+                  - table [ref=e120]:
+                    - rowgroup [ref=e121]:
+                      - row "Open Calendar... Show World Clock... Open Calculator... Chat... Last Viewed" [ref=e122]:
+                        - cell "Open Calendar..." [ref=e123]:
+                          - link "Open Calendar..." [ref=e124] [cursor=pointer]:
+                            - /url: javascript:;
+                            - img "Open Calendar..." [ref=e125]
+                        - cell "Show World Clock..." [ref=e126]:
+                          - link "Show World Clock..." [ref=e127] [cursor=pointer]:
+                            - /url: javascript:;
+                            - img "Show World Clock..." [ref=e128]
+                        - cell "Open Calculator..." [ref=e129]:
+                          - link "Open Calculator..." [ref=e130] [cursor=pointer]:
+                            - /url: "#"
+                            - img "Open Calculator..." [ref=e131]
+                        - cell "Chat..." [ref=e132]:
+                          - link "Chat..." [ref=e133] [cursor=pointer]:
+                            - /url: javascript:;
+                            - img "Chat..." [ref=e134]
+                        - cell "Last Viewed" [ref=e135]:
+                          - img "Last Viewed" [ref=e136]
+                - cell [ref=e137]
+                - cell "Import Leads Export Leads Find Duplicates" [ref=e138]:
+                  - table [ref=e139]:
+                    - rowgroup [ref=e140]:
+                      - row "Import Leads Export Leads Find Duplicates" [ref=e141]:
+                        - cell "Import Leads" [ref=e142]:
+                          - link "Import Leads" [ref=e143] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=Import&step=1&return_module=Leads&return_action=index&parenttab=Marketing
+                            - img "Import Leads" [ref=e144]
+                        - cell "Export Leads" [ref=e145]:
+                          - link "Export Leads" [ref=e146] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - img "Export Leads" [ref=e147]
+                        - cell "Find Duplicates" [ref=e148]:
+                          - link "Find Duplicates" [ref=e149] [cursor=pointer]:
+                            - /url: javascript:;
+                            - img "Find Duplicates" [ref=e150]
+                - cell [ref=e151]
+                - cell "Leads Settings" [ref=e152]:
+                  - table [ref=e153]:
+                    - rowgroup [ref=e154]:
+                      - row "Leads Settings" [ref=e155]:
+                        - cell "Leads Settings" [ref=e156]:
+                          - link "Leads Settings" [ref=e157] [cursor=pointer]:
+                            - /url: index.php?module=Settings&action=ModuleManager&module_settings=true&formodule=Leads&parenttab=Settings
+                            - img "Leads Settings" [ref=e158]
+      - row [ref=e159]:
+        - cell [ref=e160]
+  - table [ref=e161]:
+    - rowgroup [ref=e162]:
+      - row [ref=e163]:
+        - cell [ref=e164]:
+          - img [ref=e165]
+        - cell [ref=e166]:
+          - table [ref=e169]:
+            - rowgroup [ref=e170]:
+              - row "Search Go to Advanced Search Search for In Lead No Search Now [x]" [ref=e171]:
+                - cell "Search Go to Advanced Search" [ref=e172]:
+                  - text: Search
+                  - link "Go to Advanced Search" [ref=e174] [cursor=pointer]:
+                    - /url: "#"
+                - cell "Search for" [ref=e175]
+                - cell [ref=e176]:
+                  - textbox [ref=e177]
+                - cell "In" [ref=e178]
+                - cell "Lead No" [ref=e179]:
+                  - combobox [ref=e181]:
+                    - option "Lead No" [selected]
+                    - option "Last Name"
+                    - option "First Name"
+                    - option "Company"
+                    - option "Phone"
+                    - option "Website"
+                    - option "Email"
+                    - option "Assigned To"
+                - cell "Search Now" [ref=e182]:
+                  - button "Search Now" [ref=e183]
+                - cell "[x]" [ref=e184]
+              - row "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z" [ref=e185]:
+                - cell "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z" [ref=e186]:
+                  - table [ref=e187]:
+                    - rowgroup [ref=e188]:
+                      - row "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z" [ref=e189]:
+                        - cell "A" [ref=e190] [cursor=pointer]
+                        - cell "B" [ref=e191] [cursor=pointer]
+                        - cell "C" [ref=e192] [cursor=pointer]
+                        - cell "D" [ref=e193] [cursor=pointer]
+                        - cell "E" [ref=e194] [cursor=pointer]
+                        - cell "F" [ref=e195] [cursor=pointer]
+                        - cell "G" [ref=e196] [cursor=pointer]
+                        - cell "H" [ref=e197] [cursor=pointer]
+                        - cell "I" [ref=e198] [cursor=pointer]
+                        - cell "J" [ref=e199] [cursor=pointer]
+                        - cell "K" [ref=e200] [cursor=pointer]
+                        - cell "L" [ref=e201] [cursor=pointer]
+                        - cell "M" [ref=e202] [cursor=pointer]
+                        - cell "N" [ref=e203] [cursor=pointer]
+                        - cell "O" [ref=e204] [cursor=pointer]
+                        - cell "P" [ref=e205] [cursor=pointer]
+                        - cell "Q" [ref=e206] [cursor=pointer]
+                        - cell "R" [ref=e207] [cursor=pointer]
+                        - cell "S" [ref=e208] [cursor=pointer]
+                        - cell "T" [ref=e209] [cursor=pointer]
+                        - cell "U" [ref=e210] [cursor=pointer]
+                        - cell "V" [ref=e211] [cursor=pointer]
+                        - cell "W" [ref=e212] [cursor=pointer]
+                        - cell "X" [ref=e213] [cursor=pointer]
+                        - cell "Y" [ref=e214] [cursor=pointer]
+                        - cell "Z" [ref=e215] [cursor=pointer]
+          - table [ref=e218]:
+            - rowgroup [ref=e219]:
+              - row [ref=e220]:
+                - cell [ref=e221]:
+                  - table [ref=e222]:
+                    - rowgroup [ref=e223]:
+                      - 'row "Showing Records 1 - 20 of 45 Filters : All Create Filter | Edit | Delete 1 of 3Next Last" [ref=e224]':
+                        - cell "Showing Records 1 - 20 of 45" [ref=e225]
+                        - 'cell "Filters : All Create Filter | Edit | Delete" [ref=e226]':
+                          - table [ref=e227]:
+                            - rowgroup [ref=e228]:
+                              - 'row "Filters : All Create Filter | Edit | Delete" [ref=e229]':
+                                - 'cell "Filters : All Create Filter | Edit | Delete" [ref=e230]':
+                                  - table [ref=e231]:
+                                    - rowgroup [ref=e232]:
+                                      - 'row "Filters : All Create Filter | Edit | Delete" [ref=e233]':
+                                        - 'cell "Filters : All" [ref=e234]':
+                                          - generic [ref=e235]: "Filters :"
+                                          - combobox [ref=e236]:
+                                            - option "All" [selected]
+                                            - option "Hot Leads"
+                                            - option "This Month Leads"
+                                        - cell "Create Filter | Edit | Delete" [ref=e237]:
+                                          - link "Create Filter" [ref=e238] [cursor=pointer]:
+                                            - /url: index.php?module=Leads&action=CustomView&parenttab=Marketing
+                                          - text: "| Edit | Delete"
+                        - cell "1 of 3Next Last" [ref=e239]:
+                          - table [ref=e240]:
+                            - rowgroup [ref=e241]:
+                              - row "1 of 3Next Last" [ref=e242]:
+                                - cell "1 of 3Next Last" [ref=e243]:
+                                  - img [ref=e244]
+                                  - img [ref=e245]
+                                  - textbox [ref=e246]: "1"
+                                  - text: of 3
+                                  - link "Next" [ref=e247] [cursor=pointer]:
+                                    - /url: javascript:;
+                                    - img [ref=e248]
+                                  - link "Last" [ref=e249] [cursor=pointer]:
+                                    - /url: javascript:;
+                                    - img [ref=e250]
+                  - table [ref=e251]:
+                    - rowgroup [ref=e252]:
+                      - row "Delete Mass Edit Send Mail Send SMS" [ref=e253]:
+                        - cell "Delete Mass Edit Send Mail Send SMS" [ref=e254]:
+                          - button "Delete" [ref=e255]
+                          - button "Mass Edit" [ref=e256]
+                          - button "Send Mail" [ref=e257]
+                          - button "Send SMS" [ref=e258]
+                  - table [ref=e260]:
+                    - rowgroup [ref=e261]:
+                      - row "Lead No Last Name First Name Company Phone Website Email Assigned To Action" [ref=e262]:
+                        - cell [ref=e263]:
+                          - checkbox [ref=e264]
+                        - cell "Lead No" [ref=e265]:
+                          - link "Lead No" [ref=e266] [cursor=pointer]:
+                            - /url: javascript:;
+                        - cell "Last Name" [ref=e267]:
+                          - link "Last Name" [ref=e268] [cursor=pointer]:
+                            - /url: javascript:;
+                        - cell "First Name" [ref=e269]:
+                          - link "First Name" [ref=e270] [cursor=pointer]:
+                            - /url: javascript:;
+                        - cell "Company" [ref=e271]:
+                          - link "Company" [ref=e272] [cursor=pointer]:
+                            - /url: javascript:;
+                        - cell "Phone" [ref=e273]:
+                          - link "Phone" [ref=e274] [cursor=pointer]:
+                            - /url: javascript:;
+                        - cell "Website" [ref=e275]:
+                          - link "Website" [ref=e276] [cursor=pointer]:
+                            - /url: javascript:;
+                        - cell "Email" [ref=e277]:
+                          - link "Email" [ref=e278] [cursor=pointer]:
+                            - /url: javascript:;
+                        - cell "Assigned To" [ref=e279]:
+                          - link "Assigned To" [ref=e280] [cursor=pointer]:
+                            - /url: javascript:;
+                        - cell "Action" [ref=e281]
+                      - row
+                      - row "LEA11 Yadav Mr.Shubhamgood deal Expert view company xxxxxx6728 google.com yadav5257shubham@gmail.com Administrator edit | del" [ref=e282]:
+                        - cell [ref=e283]:
+                          - checkbox [ref=e284]
+                        - cell "LEA11" [ref=e285]
+                        - cell "Yadav" [ref=e286]:
+                          - link "Yadav" [ref=e287] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=125
+                        - cell "Mr.Shubhamgood deal" [ref=e288]:
+                          - link "Mr.Shubhamgood deal" [ref=e289] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=125
+                        - cell "Expert view company" [ref=e290]
+                        - cell "xxxxxx6728" [ref=e291]
+                        - cell "google.com" [ref=e292]:
+                          - link "google.com" [ref=e293] [cursor=pointer]:
+                            - /url: http://google.com
+                        - cell "yadav5257shubham@gmail.com" [ref=e294]:
+                          - link "yadav5257shubham@gmail.com" [ref=e295] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(125,46,'email','Leads','record_id');
+                        - cell "Administrator" [ref=e296]
+                        - cell "edit | del" [ref=e297]:
+                          - link "edit" [ref=e298] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=125&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e299] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D125%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                      - row "LEA12 Yadav Mr.Shubhamgood deal Expert view company xxxxxx6728 google.com yadav5257shubham@gmail.com Administrator edit | del" [ref=e300]:
+                        - cell [ref=e301]:
+                          - checkbox [ref=e302]
+                        - cell "LEA12" [ref=e303]
+                        - cell "Yadav" [ref=e304]:
+                          - link "Yadav" [ref=e305] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=126
+                        - cell "Mr.Shubhamgood deal" [ref=e306]:
+                          - link "Mr.Shubhamgood deal" [ref=e307] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=126
+                        - cell "Expert view company" [ref=e308]
+                        - cell "xxxxxx6728" [ref=e309]
+                        - cell "google.com" [ref=e310]:
+                          - link "google.com" [ref=e311] [cursor=pointer]:
+                            - /url: http://google.com
+                        - cell "yadav5257shubham@gmail.com" [ref=e312]:
+                          - link "yadav5257shubham@gmail.com" [ref=e313] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(126,46,'email','Leads','record_id');
+                        - cell "Administrator" [ref=e314]
+                        - cell "edit | del" [ref=e315]:
+                          - link "edit" [ref=e316] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=126&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e317] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D126%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                      - row "LEA13 Yadav Mr.Shubhamgood deal Expert view company xxxxxx6728 google.com yadav5257shubham@gmail.com Administrator edit | del" [ref=e318]:
+                        - cell [ref=e319]:
+                          - checkbox [ref=e320]
+                        - cell "LEA13" [ref=e321]
+                        - cell "Yadav" [ref=e322]:
+                          - link "Yadav" [ref=e323] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=127
+                        - cell "Mr.Shubhamgood deal" [ref=e324]:
+                          - link "Mr.Shubhamgood deal" [ref=e325] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=127
+                        - cell "Expert view company" [ref=e326]
+                        - cell "xxxxxx6728" [ref=e327]
+                        - cell "google.com" [ref=e328]:
+                          - link "google.com" [ref=e329] [cursor=pointer]:
+                            - /url: http://google.com
+                        - cell "yadav5257shubham@gmail.com" [ref=e330]:
+                          - link "yadav5257shubham@gmail.com" [ref=e331] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(127,46,'email','Leads','record_id');
+                        - cell "Administrator" [ref=e332]
+                        - cell "edit | del" [ref=e333]:
+                          - link "edit" [ref=e334] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=127&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e335] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D127%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                      - row "LEA14 Yadav Mr.Shubhamgood deal Expert view company xxxxxx6728 google.com yadav5257shubham@gmail.com Administrator edit | del" [ref=e336]:
+                        - cell [ref=e337]:
+                          - checkbox [ref=e338]
+                        - cell "LEA14" [ref=e339]
+                        - cell "Yadav" [ref=e340]:
+                          - link "Yadav" [ref=e341] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=128
+                        - cell "Mr.Shubhamgood deal" [ref=e342]:
+                          - link "Mr.Shubhamgood deal" [ref=e343] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=128
+                        - cell "Expert view company" [ref=e344]
+                        - cell "xxxxxx6728" [ref=e345]
+                        - cell "google.com" [ref=e346]:
+                          - link "google.com" [ref=e347] [cursor=pointer]:
+                            - /url: http://google.com
+                        - cell "yadav5257shubham@gmail.com" [ref=e348]:
+                          - link "yadav5257shubham@gmail.com" [ref=e349] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(128,46,'email','Leads','record_id');
+                        - cell "Administrator" [ref=e350]
+                        - cell "edit | del" [ref=e351]:
+                          - link "edit" [ref=e352] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=128&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e353] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D128%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                      - row "LEA15 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e354]:
+                        - cell [ref=e355]:
+                          - checkbox [ref=e356]
+                        - cell "LEA15" [ref=e357]
+                        - cell "Yadav" [ref=e358]:
+                          - link "Yadav" [ref=e359] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=129
+                        - cell "Shubham" [ref=e360]:
+                          - link "Shubham" [ref=e361] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=129
+                        - cell "Saritron" [ref=e362]
+                        - cell "8423256722" [ref=e363]
+                        - cell "Google.com" [ref=e364]:
+                          - link "Google.com" [ref=e365] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e366]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e367] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(129,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e368]
+                        - cell "edit | del |" [ref=e369]:
+                          - link "edit" [ref=e370] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=129&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e371] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D129%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e372]
+                      - row "LEA16 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e373]:
+                        - cell [ref=e374]:
+                          - checkbox [ref=e375]
+                        - cell "LEA16" [ref=e376]
+                        - cell "Yadav" [ref=e377]:
+                          - link "Yadav" [ref=e378] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=130
+                        - cell "Shubham" [ref=e379]:
+                          - link "Shubham" [ref=e380] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=130
+                        - cell "Saritron" [ref=e381]
+                        - cell "8423256722" [ref=e382]
+                        - cell "Google.com" [ref=e383]:
+                          - link "Google.com" [ref=e384] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e385]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e386] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(130,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e387]
+                        - cell "edit | del |" [ref=e388]:
+                          - link "edit" [ref=e389] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=130&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e390] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D130%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e391]
+                      - row "LEA17 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e392]:
+                        - cell [ref=e393]:
+                          - checkbox [ref=e394]
+                        - cell "LEA17" [ref=e395]
+                        - cell "Yadav" [ref=e396]:
+                          - link "Yadav" [ref=e397] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=131
+                        - cell "Shubham" [ref=e398]:
+                          - link "Shubham" [ref=e399] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=131
+                        - cell "Saritron" [ref=e400]
+                        - cell "8423256722" [ref=e401]
+                        - cell "Google.com" [ref=e402]:
+                          - link "Google.com" [ref=e403] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e404]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e405] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(131,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e406]
+                        - cell "edit | del |" [ref=e407]:
+                          - link "edit" [ref=e408] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=131&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e409] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D131%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e410]
+                      - row "LEA18 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e411]:
+                        - cell [ref=e412]:
+                          - checkbox [ref=e413]
+                        - cell "LEA18" [ref=e414]
+                        - cell "Yadav" [ref=e415]:
+                          - link "Yadav" [ref=e416] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=132
+                        - cell "Shubham" [ref=e417]:
+                          - link "Shubham" [ref=e418] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=132
+                        - cell "Saritron" [ref=e419]
+                        - cell "8423256722" [ref=e420]
+                        - cell "Google.com" [ref=e421]:
+                          - link "Google.com" [ref=e422] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e423]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e424] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(132,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e425]
+                        - cell "edit | del |" [ref=e426]:
+                          - link "edit" [ref=e427] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=132&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e428] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D132%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e429]
+                      - row "LEA19 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e430]:
+                        - cell [ref=e431]:
+                          - checkbox [ref=e432]
+                        - cell "LEA19" [ref=e433]
+                        - cell "Yadav" [ref=e434]:
+                          - link "Yadav" [ref=e435] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=133
+                        - cell "Shubham" [ref=e436]:
+                          - link "Shubham" [ref=e437] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=133
+                        - cell "Saritron" [ref=e438]
+                        - cell "8423256722" [ref=e439]
+                        - cell "Google.com" [ref=e440]:
+                          - link "Google.com" [ref=e441] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e442]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e443] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(133,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e444]
+                        - cell "edit | del |" [ref=e445]:
+                          - link "edit" [ref=e446] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=133&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e447] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D133%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e448]
+                      - row "LEA20 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e449]:
+                        - cell [ref=e450]:
+                          - checkbox [ref=e451]
+                        - cell "LEA20" [ref=e452]
+                        - cell "Yadav" [ref=e453]:
+                          - link "Yadav" [ref=e454] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=134
+                        - cell "Shubham" [ref=e455]:
+                          - link "Shubham" [ref=e456] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=134
+                        - cell "Saritron" [ref=e457]
+                        - cell "8423256722" [ref=e458]
+                        - cell "Google.com" [ref=e459]:
+                          - link "Google.com" [ref=e460] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e461]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e462] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(134,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e463]
+                        - cell "edit | del |" [ref=e464]:
+                          - link "edit" [ref=e465] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=134&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e466] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D134%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e467]
+                      - row "LEA21 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e468]:
+                        - cell [ref=e469]:
+                          - checkbox [ref=e470]
+                        - cell "LEA21" [ref=e471]
+                        - cell "Yadav" [ref=e472]:
+                          - link "Yadav" [ref=e473] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=136
+                        - cell "Shubham" [ref=e474]:
+                          - link "Shubham" [ref=e475] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=136
+                        - cell "Saritron" [ref=e476]
+                        - cell "8423256722" [ref=e477]
+                        - cell "Google.com" [ref=e478]:
+                          - link "Google.com" [ref=e479] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e480]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e481] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(136,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e482]
+                        - cell "edit | del |" [ref=e483]:
+                          - link "edit" [ref=e484] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=136&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e485] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D136%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e486]
+                      - row "LEA22 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e487]:
+                        - cell [ref=e488]:
+                          - checkbox [ref=e489]
+                        - cell "LEA22" [ref=e490]
+                        - cell "Yadav" [ref=e491]:
+                          - link "Yadav" [ref=e492] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=137
+                        - cell "Shubham" [ref=e493]:
+                          - link "Shubham" [ref=e494] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=137
+                        - cell "Saritron" [ref=e495]
+                        - cell "8423256722" [ref=e496]
+                        - cell "Google.com" [ref=e497]:
+                          - link "Google.com" [ref=e498] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e499]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e500] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(137,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e501]
+                        - cell "edit | del |" [ref=e502]:
+                          - link "edit" [ref=e503] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=137&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e504] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D137%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e505]
+                      - row "LEA23 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e506]:
+                        - cell [ref=e507]:
+                          - checkbox [ref=e508]
+                        - cell "LEA23" [ref=e509]
+                        - cell "Yadav" [ref=e510]:
+                          - link "Yadav" [ref=e511] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=138
+                        - cell "Shubham" [ref=e512]:
+                          - link "Shubham" [ref=e513] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=138
+                        - cell "Saritron" [ref=e514]
+                        - cell "8423256722" [ref=e515]
+                        - cell "Google.com" [ref=e516]:
+                          - link "Google.com" [ref=e517] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e518]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e519] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(138,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e520]
+                        - cell "edit | del |" [ref=e521]:
+                          - link "edit" [ref=e522] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=138&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e523] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D138%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e524]
+                      - row "LEA24 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e525]:
+                        - cell [ref=e526]:
+                          - checkbox [ref=e527]
+                        - cell "LEA24" [ref=e528]
+                        - cell "Yadav" [ref=e529]:
+                          - link "Yadav" [ref=e530] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=139
+                        - cell "Shubham" [ref=e531]:
+                          - link "Shubham" [ref=e532] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=139
+                        - cell "Saritron" [ref=e533]
+                        - cell "8423256722" [ref=e534]
+                        - cell "Google.com" [ref=e535]:
+                          - link "Google.com" [ref=e536] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e537]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e538] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(139,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e539]
+                        - cell "edit | del |" [ref=e540]:
+                          - link "edit" [ref=e541] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=139&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e542] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D139%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e543]
+                      - row "LEA25 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e544]:
+                        - cell [ref=e545]:
+                          - checkbox [ref=e546]
+                        - cell "LEA25" [ref=e547]
+                        - cell "Yadav" [ref=e548]:
+                          - link "Yadav" [ref=e549] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=140
+                        - cell "Shubham" [ref=e550]:
+                          - link "Shubham" [ref=e551] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=140
+                        - cell "Saritron" [ref=e552]
+                        - cell "8423256722" [ref=e553]
+                        - cell "Google.com" [ref=e554]:
+                          - link "Google.com" [ref=e555] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e556]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e557] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(140,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e558]
+                        - cell "edit | del |" [ref=e559]:
+                          - link "edit" [ref=e560] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=140&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e561] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D140%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e562]
+                      - row "LEA26 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e563]:
+                        - cell [ref=e564]:
+                          - checkbox [ref=e565]
+                        - cell "LEA26" [ref=e566]
+                        - cell "Yadav" [ref=e567]:
+                          - link "Yadav" [ref=e568] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=141
+                        - cell "Shubham" [ref=e569]:
+                          - link "Shubham" [ref=e570] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=141
+                        - cell "Saritron" [ref=e571]
+                        - cell "8423256722" [ref=e572]
+                        - cell "Google.com" [ref=e573]:
+                          - link "Google.com" [ref=e574] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e575]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e576] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(141,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e577]
+                        - cell "edit | del |" [ref=e578]:
+                          - link "edit" [ref=e579] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=141&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e580] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D141%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e581]
+                      - row "LEA27 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e582]:
+                        - cell [ref=e583]:
+                          - checkbox [ref=e584]
+                        - cell "LEA27" [ref=e585]
+                        - cell "Yadav" [ref=e586]:
+                          - link "Yadav" [ref=e587] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=143
+                        - cell "Shubham" [ref=e588]:
+                          - link "Shubham" [ref=e589] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=143
+                        - cell "Saritron" [ref=e590]
+                        - cell "8423256722" [ref=e591]
+                        - cell "Google.com" [ref=e592]:
+                          - link "Google.com" [ref=e593] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e594]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e595] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(143,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e596]
+                        - cell "edit | del |" [ref=e597]:
+                          - link "edit" [ref=e598] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=143&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e599] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D143%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e600]
+                      - row "LEA28 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e601]:
+                        - cell [ref=e602]:
+                          - checkbox [ref=e603]
+                        - cell "LEA28" [ref=e604]
+                        - cell "Yadav" [ref=e605]:
+                          - link "Yadav" [ref=e606] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=144
+                        - cell "Shubham" [ref=e607]:
+                          - link "Shubham" [ref=e608] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=144
+                        - cell "Saritron" [ref=e609]
+                        - cell "8423256722" [ref=e610]
+                        - cell "Google.com" [ref=e611]:
+                          - link "Google.com" [ref=e612] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e613]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e614] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(144,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e615]
+                        - cell "edit | del |" [ref=e616]:
+                          - link "edit" [ref=e617] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=144&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e618] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D144%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e619]
+                      - row "LEA29 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e620]:
+                        - cell [ref=e621]:
+                          - checkbox [ref=e622]
+                        - cell "LEA29" [ref=e623]
+                        - cell "Yadav" [ref=e624]:
+                          - link "Yadav" [ref=e625] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=146
+                        - cell "Shubham" [ref=e626]:
+                          - link "Shubham" [ref=e627] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=146
+                        - cell "Saritron" [ref=e628]
+                        - cell "8423256722" [ref=e629]
+                        - cell "Google.com" [ref=e630]:
+                          - link "Google.com" [ref=e631] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e632]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e633] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(146,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e634]
+                        - cell "edit | del |" [ref=e635]:
+                          - link "edit" [ref=e636] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=146&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e637] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D146%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e638]
+                      - row "LEA30 Yadav Shubham Saritron 8423256722 Google.com shubhamyadav3222@gmail.com Marketing Group edit | del |" [ref=e639]:
+                        - cell [ref=e640]:
+                          - checkbox [ref=e641]
+                        - cell "LEA30" [ref=e642]
+                        - cell "Yadav" [ref=e643]:
+                          - link "Yadav" [ref=e644] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=147
+                        - cell "Shubham" [ref=e645]:
+                          - link "Shubham" [ref=e646] [cursor=pointer]:
+                            - /url: index.php?module=Leads&parenttab=Marketing&action=DetailView&record=147
+                        - cell "Saritron" [ref=e647]
+                        - cell "8423256722" [ref=e648]
+                        - cell "Google.com" [ref=e649]:
+                          - link "Google.com" [ref=e650] [cursor=pointer]:
+                            - /url: http://Google.com
+                        - cell "shubhamyadav3222@gmail.com" [ref=e651]:
+                          - link "shubhamyadav3222@gmail.com" [ref=e652] [cursor=pointer]:
+                            - /url: javascript:InternalMailer(147,46,'email','Leads','record_id');
+                        - cell "Marketing Group" [ref=e653]
+                        - cell "edit | del |" [ref=e654]:
+                          - link "edit" [ref=e655] [cursor=pointer]:
+                            - /url: index.php?module=Leads&action=EditView&record=147&return_module=Leads&return_action=index&parenttab=Marketing&return_viewname=1
+                          - text: "|"
+                          - link "del" [ref=e656] [cursor=pointer]:
+                            - /url: javascript:confirmdelete("index.php%3Fmodule%3DLeads%26action%3DDelete%26record%3D147%26return_module%3DLeads%26return_action%3Dindex%26parenttab%3DMarketing%26return_viewname%3D1")
+                          - text: "|"
+                          - img [ref=e657]
+                  - table [ref=e658]:
+                    - rowgroup [ref=e659]:
+                      - row "Delete Mass Edit Send Mail Send SMS Create Mail Merge templates" [ref=e660]:
+                        - cell "Delete Mass Edit Send Mail Send SMS" [ref=e661]:
+                          - button "Delete" [ref=e662]
+                          - button "Mass Edit" [ref=e663]
+                          - button "Send Mail" [ref=e664]
+                          - button "Send SMS" [ref=e665]
+                        - cell "Create Mail Merge templates" [ref=e666]:
+                          - table [ref=e667]:
+                            - rowgroup [ref=e668]:
+                              - row "Create Mail Merge templates" [ref=e669]:
+                                - cell "Create Mail Merge templates" [ref=e670]:
+                                  - link "Create Mail Merge templates" [ref=e671] [cursor=pointer]:
+                                    - /url: index.php?module=Settings&action=upload&tempModule=Leads&parenttab=Settings
+              - row "Showing Records 1 - 20 of 45 1 of 3Next Last" [ref=e672]:
+                - cell "Showing Records 1 - 20 of 45 1 of 3Next Last" [ref=e673]:
+                  - table [ref=e674]:
+                    - rowgroup [ref=e675]:
+                      - row "Showing Records 1 - 20 of 45 1 of 3Next Last" [ref=e676]:
+                        - cell "Showing Records 1 - 20 of 45" [ref=e677]
+                        - cell "1 of 3Next Last" [ref=e678]:
+                          - table [ref=e679]:
+                            - rowgroup [ref=e680]:
+                              - row "1 of 3Next Last" [ref=e681]:
+                                - cell "1 of 3Next Last" [ref=e682]:
+                                  - img [ref=e683]
+                                  - img [ref=e684]
+                                  - textbox [ref=e685]: "1"
+                                  - text: of 3
+                                  - link "Next" [ref=e686] [cursor=pointer]:
+                                    - /url: javascript:;
+                                    - img [ref=e687]
+                                  - link "Last" [ref=e688] [cursor=pointer]:
+                                    - /url: javascript:;
+                                    - img [ref=e689]
+        - cell [ref=e690]:
+          - img [ref=e691]
+  - table [ref=e692]:
+    - rowgroup [ref=e693]:
+      - row "Powered by vtiger CRM 5.4.0 © 2004-2026 vtiger.com | Read License | Privacy Policy" [ref=e694]:
+        - cell "Powered by vtiger CRM 5.4.0" [ref=e695]:
+          - generic [ref=e696]: Powered by vtiger CRM 5.4.0
+        - cell "© 2004-2026 vtiger.com | Read License | Privacy Policy" [ref=e697]:
+          - generic [ref=e698]:
+            - text: © 2004-2026
+            - link "vtiger.com" [ref=e699] [cursor=pointer]:
+              - /url: http://www.vtiger.com
+            - text: "|"
+            - link "Read License" [ref=e700] [cursor=pointer]:
+              - /url: javascript:mypopup()
+            - text: "|"
+            - link "Privacy Policy" [ref=e701] [cursor=pointer]:
+              - /url: http://www.vtiger.com/products/crm/privacy_policy.html
+```
+
+# Test source
+
+```ts
+  1  | const { test, expect } = require('@playwright/test');
+  2  | const LoginPage = require('../pages/loginPage');
+  3  | const LeadsPage = require('../pages/leadsPage');
+  4  | const loginData = require('../test-data/loginData');
+  5  | const leadsData = require('../test-data/leadsData');
+  6  | 
+  7  | test.describe('VTiger CRM Leads Module Tests', () => {
+  8  |   let loginPage;
+  9  |   let leadsPage;
+  10 | 
+  11 |   test.beforeEach(async ({ page }) => {
+  12 |     loginPage = new LoginPage(page);
+  13 |     leadsPage = new LeadsPage(page);
+  14 |     await page.goto('/');
+  15 |     await loginPage.login(loginData.valid.username, loginData.valid.password);
+  16 |   });
+  17 | 
+  18 |   test('Navigate to Leads module', async ({ page }) => {
+  19 |     await leadsPage.navigateToLeads();
+  20 |     await expect(page).toHaveURL(/.*module=Leads.*action=index/);
+> 21 |     expect(await leadsPage.leadsTab.isVisible()).toBe(true);
+     |                                     ^ Error: locator.isVisible: Error: strict mode violation: getByRole('link', { name: 'Leads' }) resolved to 6 elements:
+  22 |   });
+  23 | 
+  24 |   test('Create new Lead', async () => {
+  25 |     const uniqueSuffix = Date.now();
+  26 |     const leadName = `${leadsData.firstName}${uniqueSuffix} ${leadsData.lastName}${uniqueSuffix}`;
+  27 | 
+  28 |     await leadsPage.navigateToLeads();
+  29 |     await leadsPage.createLead(`${leadsData.firstName}${uniqueSuffix}`, `${leadsData.lastName}${uniqueSuffix}`, leadsData.company);
+  30 | 
+  31 |     const created = await leadsPage.verifyLeadCreated(leadName);
+  32 |     expect(created).toBe(true);
+  33 |   });
+  34 | 
+  35 |   test('Verify Lead created successfully', async () => {
+  36 |     const uniqueSuffix = Date.now();
+  37 |     const leadName = `${leadsData.firstName}${uniqueSuffix} ${leadsData.lastName}${uniqueSuffix}`;
+  38 | 
+  39 |     await leadsPage.navigateToLeads();
+  40 |     await leadsPage.createLead(`${leadsData.firstName}${uniqueSuffix}`, `${leadsData.lastName}${uniqueSuffix}`, leadsData.company);
+  41 |     await leadsPage.searchLead(leadName);
+  42 | 
+  43 |     const found = await leadsPage.verifyLeadCreated(leadName);
+  44 |     expect(found).toBe(true);
+  45 |   });
+  46 | 
+  47 |   test('Edit Lead', async () => {
+  48 |     const uniqueSuffix = Date.now();
+  49 |     const leadName = `${leadsData.firstName}${uniqueSuffix} ${leadsData.lastName}${uniqueSuffix}`;
+  50 |     const updatedName = `${leadsData.updatedFirstName}${uniqueSuffix} ${leadsData.updatedLastName}${uniqueSuffix}`;
+  51 | 
+  52 |     await leadsPage.navigateToLeads();
+  53 |     await leadsPage.createLead(`${leadsData.firstName}${uniqueSuffix}`, `${leadsData.lastName}${uniqueSuffix}`, leadsData.company);
+  54 |     await leadsPage.editLead(leadName, `${leadsData.updatedFirstName}${uniqueSuffix}`, `${leadsData.updatedLastName}${uniqueSuffix}`);
+  55 | 
+  56 |     const updated = await leadsPage.verifyLeadCreated(updatedName);
+  57 |     expect(updated).toBe(true);
+  58 |   });
+  59 | 
+  60 |   test('Delete Lead', async () => {
+  61 |     const uniqueSuffix = Date.now();
+  62 |     const leadName = `${leadsData.firstName}${uniqueSuffix} ${leadsData.lastName}${uniqueSuffix}`;
+  63 | 
+  64 |     await leadsPage.navigateToLeads();
+  65 |     await leadsPage.createLead(`${leadsData.firstName}${uniqueSuffix}`, `${leadsData.lastName}${uniqueSuffix}`, leadsData.company);
+  66 |     await leadsPage.deleteLead(leadName);
+  67 | 
+  68 |     const deleted = await leadsPage.verifyLeadDeleted(leadName);
+  69 |     expect(deleted).toBe(true);
+  70 |   });
+  71 | });
+```
