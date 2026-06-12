@@ -15,13 +15,20 @@ test.describe('VTiger CRM Contacts Module Tests', () => {
     await loginPage.login(loginData.valid.username, loginData.valid.password);
   });
 
+  test.afterEach(async ({ page }) => {
+    // Close current page to avoid browser reuse between tests
+    if (page && !page.isClosed()) {
+      await page.close();
+    }
+  });
+
   test('Navigate to Contacts module', async ({ page }) => {
     await contactsPage.navigateToContacts();
     await expect(page).toHaveURL(/.*module=Contacts/);
   });
 
   test('Create a new contact', async () => {
-    const contactName = `${moduleData.contacts.firstName} ${moduleData.contacts.lastName}`;
+    const contactName = `{moduleData.contacts.firstName} {moduleData.contacts.lastName}`;
     await contactsPage.navigateToContacts();
     const initialCount = await contactsPage.getContactsCount();
     await contactsPage.createContact(moduleData.contacts.firstName, moduleData.contacts.lastName, moduleData.contacts.email);
@@ -30,6 +37,11 @@ test.describe('VTiger CRM Contacts Module Tests', () => {
     const finalCount = await contactsPage.getContactsCount();
     expect(finalCount).toBe(initialCount + 1);
   });
+
+  test('Verify that new Contact has Created', async()=>{
+    const constactHasCreated =await contactsPage.getContactsCount();
+    
+  })
 
   test('Edit an existing contact', async () => {
     await contactsPage.navigateToContacts();
@@ -45,4 +57,5 @@ test.describe('VTiger CRM Contacts Module Tests', () => {
     const finalCount = await contactsPage.getContactsCount();
     expect(finalCount).toBe(initialCount - 1);
   });
+
 });

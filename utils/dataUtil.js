@@ -21,4 +21,4 @@ class DataUtil {
   }
 }
 
-module.exports = DataUtil;
+//module.exports = DataUtil;

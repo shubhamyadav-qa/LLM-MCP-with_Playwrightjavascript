@@ -1,0 +1,91 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: activities.spec.js >> VTiger CRM Activities Module Tests >> Delete an activity
+- Location: tests\activities.spec.js:57:3
+
+# Error details
+
+```
+Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+Call log:
+  - navigating to "http://localhost:8888/", waiting until "load"
+
+```
+
+# Test source
+
+```ts
+  1  | const { test, expect } = require('@playwright/test');
+  2  | const LoginPage = require('../pages/loginPage');
+  3  | const ActivitiesPage = require('../pages/activitiesPage');
+  4  | const loginData = require('../test-data/loginData');
+  5  | const moduleData = require('../test-data/moduleData');
+  6  | 
+  7  | test.describe('VTiger CRM Activities Module Tests', () => {
+  8  |   let loginPage;
+  9  |   let activitiesPage;
+  10 | 
+
+  11 |   test.beforeEach(async ({ page }) => {
+  12 |     loginPage = new LoginPage(page);
+  13 |     activitiesPage = new ActivitiesPage(page);
+> 14 |     await page.goto('/');
+     |                ^ Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+                 //in Playwright usually means the page navigation was interrupted before it completed.
+  15 |     await loginPage.login(loginData.valid.username, loginData.valid.password);
+  16 |   });
+  17 | 
+  18 |   test.afterEach(async ({ page }) => {
+  19 |     // Close current page to avoid browser reuse between tests
+  20 |     if (page && !page.isClosed()) {
+  21 |       await page.close();
+  22 |     }
+  23 |   });
+  24 | 
+  25 |   test('Navigate to Activities module', async ({ page }) => {
+  26 |     await activitiesPage.navigateToActivities();
+  27 |     await expect(page).toHaveURL(/.*module=Activities/);
+  28 |   });
+  29 | 
+  30 |   test('Create a new task', async () => {
+  31 |     await activitiesPage.navigateToActivities();
+  32 |     const initialCount = await activitiesPage.getActivitiesCount();
+  33 |     await activitiesPage.createTask(moduleData.activities.taskSubject);
+  34 |     const isCreated = await activitiesPage.verifyActivityCreated(moduleData.activities.taskSubject);
+  35 |     expect(isCreated).toBe(true);
+  36 |     const finalCount = await activitiesPage.getActivitiesCount();
+  37 |     expect(finalCount).toBe(initialCount + 1);
+  38 |   });
+  39 | 
+  40 |   test('Create a new event', async () => {
+  41 |     await activitiesPage.navigateToActivities();
+  42 |     const initialCount = await activitiesPage.getActivitiesCount();
+  43 |     await activitiesPage.createEvent(moduleData.activities.eventSubject);
+  44 |     const isCreated = await activitiesPage.verifyActivityCreated(moduleData.activities.eventSubject);
+  45 |     expect(isCreated).toBe(true);
+  46 |     const finalCount = await activitiesPage.getActivitiesCount();
+  47 |     expect(finalCount).toBe(initialCount + 1);
+  48 |   });
+  49 | 
+  50 |   test('Edit an existing activity', async () => {
+  51 |     await activitiesPage.navigateToActivities();
+  52 |     await activitiesPage.editActivity('Updated Activity Subject');
+  53 |     const isUpdated = await activitiesPage.verifyActivityCreated('Updated Activity Subject');
+  54 |     expect(isUpdated).toBe(true);
+  55 |   });
+  56 | 
+  57 |   test('Delete an activity', async () => {
+  58 |     await activitiesPage.navigateToActivities();
+  59 |     const initialCount = await activitiesPage.getActivitiesCount();
+  60 |     await activitiesPage.deleteActivity();
+  61 |     const finalCount = await activitiesPage.getActivitiesCount();
+  62 |     expect(finalCount).toBe(initialCount - 1);
+  63 |   });
+  64 | });
+```

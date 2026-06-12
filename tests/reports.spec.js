@@ -15,6 +15,13 @@ test.describe('VTiger CRM Reports Module Tests', () => {
     await loginPage.login(loginData.valid.username, loginData.valid.password);
   });
 
+  test.afterEach(async ({ page }) => {
+    // Close current page to avoid browser reuse between tests
+    if (page && !page.isClosed()) {
+      await page.close();
+    }
+  });
+
   test('Navigate to Reports module', async ({ page }) => {
     await reportsPage.navigateToReports();
     await expect(page).toHaveURL(/.*module=Reports/);

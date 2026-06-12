@@ -12,6 +12,7 @@ class AccountsPage {
     this.deleteButton = page.locator('input[value="Delete"]');
   }
 
+
   async navigateToAccounts() {
     await this.accountsTab.click();
     await this.page.waitForLoadState('networkidle');

@@ -3,5 +3,6 @@ module.exports = {
   lastName: 'Lead',
   company: 'Test Company Ltd',
   updatedFirstName: 'Updated',
-  updatedLastName: 'Lead'
+  updatedLastName: 'Lead',
+  updatedNumber:'82345678890'
 };

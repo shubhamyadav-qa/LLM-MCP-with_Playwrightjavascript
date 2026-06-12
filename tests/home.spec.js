@@ -22,6 +22,11 @@ test.describe('VTiger CRM Home Module Tests', () => {
     expect(isDashboardLoaded).toBe(true);
   });
 
+  test('Validate the dashboard title', async()=>{
+  const =await 
+
+
+  });
   test('Verify dashboard elements are visible', async () => {
     const dashboardTitle = await homePage.getDashboardTitle();
     expect(dashboardTitle).toContain('Dashboard');

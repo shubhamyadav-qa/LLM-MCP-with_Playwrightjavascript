@@ -16,4 +16,4 @@ class BrowserManager {
   }
 }
 
-module.exports = BrowserManager;
+//module.exports = BrowserManager;
